@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Document</title>
+</head>
+
+<body>
+   <div class="wrap">
+      <div class="heading">
+         <p class="heading__title">Search Tags</p>
+      </div>
+      <div class="body">
+         <ul class="list-search">
+            <li class="item-search">
+               <span>Nodejs</span>
+               <i class='bx bx-x'></i>
+            </li>
+
+         </ul>
+         <input type="text" placeholder="type and enter" class="input" id="input">
+      </div>
+      <button class="btn">Remove all</button>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+      const $$ = document.querySelectorAll.bind(document);
+      const ul = $('.list-search');
+      const input = $('.input');
+      const removeBtn = $('.btn');
+      let storage = {
+         get() {
+            return JSON.parse(localStorage.getItem('list')) || []
+         },
+         set(tags) {
+            localStorage.setItem('list', JSON.stringify(tags))
+         }
+      }
+      let tags = storage.get();
+      createTags();
+      function createTags() {
+         ul.querySelectorAll('li').forEach(element => {
+            element.remove();
+         });
+
+         tags.forEach(tag => {
+            let liTag = `
+            <li class="item-search">
+               <span>${tag}</span>
+               <i class='bx bx-x' onclick='removeTag(this,"${tag}")'></i>
+            </li>
+            `
+            ul.insertAdjacentHTML('beforeend', liTag);
+         })
+         input.focus();
+      }
+
+      function removeTag(element, tag) {
+         let index = tags.indexOf(tag);
+         tags.splice(index, 1);
+         element.parentElement.remove();
+         input.focus();
+         storage.set(tags);
+      }
+
+      function addTag(event) {
+         if (event.keyCode === 13) {
+            let tag = event.target.value.trim();
+            if (tag !== '' && !tags.includes(tag)) {
+               tags.push(tag);
+               storage.set(tags);
+               createTags();
+            }
+            event.target.value = '';
+         }
+      }
+      input.addEventListener('keypress', addTag);
+
+      removeBtn.onclick = function () {
+         tags.splice(0, tags.length);
+         ul.querySelectorAll('li').forEach(element => element.remove());
+         storage.set(tags);
+         input.focus();
+      }
+
+   </script>
+</body>
+
+</html>

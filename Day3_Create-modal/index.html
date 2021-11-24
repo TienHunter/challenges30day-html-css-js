@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Document</title>
+</head>
+
+<body>
+   <div class="card">
+      <p>Open modal</p>
+   </div>
+   <div class="modal hidden">
+      <div class="modal__form">
+         <header class="modal__heading">
+            <p>Welcome create new Modal</p>
+            <i class='bx bx-x'></i>
+         </header>
+         <div class="modal__body">
+            <h3>Modal</h3>
+            <p>Design the body</p>
+         </div>
+         <footer class="modal__footer">
+            <button class="btn btn-close">Close</button>
+         </footer>
+      </div>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+      const card = $(".card");
+      card.onclick = function () {
+         modal.classList.toggle('hidden')
+      }
+      console.log(card)
+      const modal = $('.modal');
+      modal.onclick = function (e) {
+         if (e.target === this) //How to prevent parent's onclick event from firing when child anchor is clicked?
+            modal.classList.toggle('hidden')
+      }
+      console.log(modal)
+      const closeIcon = $('.modal__heading i');
+      closeIcon.onclick = function () {
+         modal.classList.toggle('hidden')
+      }
+      console.log(closeIcon)
+      const closeBtn = $('.btn');
+      closeBtn.onclick = function () {
+         modal.classList.toggle('hidden')
+      }
+      console.log(closeBtn)
+   </script>
+</body>
+
+</html>

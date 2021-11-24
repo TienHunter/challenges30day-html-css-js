@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Document</title>
+</head>
+
+<body>
+   <p class="text">Press any key</p>
+   <div class="box hide">
+      <p class="keyCode">18</p>
+      <div class="detail">
+         <div class="card">
+            <h3 class="event">event.key</h3>
+            <p class="result key">1</p>
+         </div>
+         <div class="card">
+            <h3 class="event">event.location</h3>
+            <p class="result location">0</p>
+         </div>
+         <div class="card">
+            <h3 class="event ">event.which</h3>
+            <p class="result which">88</p>
+         </div>
+         <div class="card">
+            <h3 class="event ">event.code</h3>
+            <p class="result code">Key?</p>
+         </div>
+      </div>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+      const text = $('.text')
+      const box = $('.box')
+      const eKeyCode = $('.keyCode');
+      const eKey = $('.key');
+      const eLocation = $('.location');
+      const eWhich = $('.which');
+      const eCode = $('.code');
+
+      document.addEventListener('keydown', (event) => {
+         text.classList.add('hide')
+         box.classList.remove('hide');
+
+         eKeyCode.innerText = event.keyCode;
+         eKey.innerText = event.keyCode === 32 ? event.code : event.key;
+
+         eLocation.innerText = event.location;
+         eWhich.innerText = event.which;
+         eCode.innerText = event.code;
+      })
+   </script>
+</body>
+
+</html>

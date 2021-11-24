@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Document</title>
+</head>
+
+<body>
+   <div class="app">
+      <div class="card-image"><img src="./img1.jpeg" alt="" class="img"></div>
+      <div class="card-image"><img src="./img2.jpeg" alt="" class="img"></div>
+      <div class="card-image"><img src="./img3.jpeg" alt="" class="img"></div>
+      <div class="card-image"><img src="./img4.jpeg" alt="" class="img"></div>
+      <div class="card-image"><img src="./img5.jpeg" alt="" class="img"></div>
+      <div class="card-image"><img src="./img6.jpeg" alt="" class="img"></div>
+      <div class="card-image"><img src="./img7.jpeg" alt="" class="img"></div>
+      <div class="card-image"><img src="./img8.jpeg" alt="" class="img"></div>
+
+      <div class="one-image hidden">
+         <img src="./img4.jpeg" alt="" class="primary-image">
+         <i class='bx bxs-left-arrow left-icon'></i>
+         <i class='bx bxs-right-arrow right-icon'></i>
+      </div>
+   </div>
+
+   <script>
+      const $ = document.querySelector.bind(document);
+      const $$ = document.querySelectorAll.bind(document);
+
+      const listImage = $$('.img');
+      const displayOne = $('.one-image');
+      const imageDisplay = $('.primary-image')
+      const leftBtn = $('.left-icon');
+      const rightBtn = $('.right-icon')
+      let currentIndex = 0;
+
+      // console.log(listImage);
+      function showImage() {
+         if (currentIndex === 0) {
+            leftBtn.classList.add('hidden');
+         } else {
+            leftBtn.classList.remove('hidden');
+         }
+         if (currentIndex === listImage.length - 1) {
+            rightBtn.classList.add('hidden');
+
+         } else {
+            rightBtn.classList.remove('hidden');
+         }
+         imageDisplay.src = listImage[currentIndex].src
+
+      }
+      listImage.forEach((item, index) => {
+         item.onclick = () => {
+            currentIndex = index
+            displayOne.classList.remove('hidden');
+            showImage()
+         }
+      })
+
+      displayOne.onclick = function (e) {
+         if (e.target === this) {
+            displayOne.classList.add('hidden');
+         }
+      }
+      leftBtn.onclick = () => {
+         if (currentIndex > 0)
+            currentIndex--;
+         showImage();
+      }
+      rightBtn.onclick = () => {
+         if (currentIndex < listImage.length - 1)
+            currentIndex++;
+         showImage();
+      }
+
+
+   </script>
+</body>
+
+</html>
