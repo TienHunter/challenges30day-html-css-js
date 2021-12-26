@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+.full-height {
+  height: 100vh;
+}
+#home {
+  background: linear-gradient(45deg, #680a12, #ff9352);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffffdd;
+}
+#home > div {
+  padding-left: 80px;
+  width: 100%;
+}
+#home h1 {
+  font-size: 46px;
+  margin-bottom: 24px;
+}
+#home p {
+  font-size: 20px;
+  width: 700px;
+}
+.left-to-right {
+  transform: translateX(-200%);
+}
+.left-to-right.start {
+  transition: 0.7s ease-in-out;
+  transform: translateX(0);
+}
+.right-to-left {
+  transform: translateX(200%);
+}
+.right-to-left.start {
+  transition: 0.7s ease-in-out;
+  transform: translateX(0);
+}
+#about {
+  background-color: #dfdfdf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#about div {
+  background-color: #3f3f3f;
+  width: 500px;
+  margin: 0 30px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: #fff;
+}
+#about h2 {
+  font-size: 36px;
+  margin-bottom: 18px;
+}
+#about p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #1275ed, #98ad01);
+}
+#contact div {
+  width: 200px;
+  padding: 24px 12px;
+  margin: 0 24px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+#contact h3 {
+  margin-bottom: 16px;
+  font-size: 32px;
+}
+#contact p {
+  font-size: 18px;
+  line-height: 20px;
+}
+.zoom {
+  transform: scale(0);
+  transition: 0.7s ease 0.3s;
+}
+.zoom.start {
+  transform: scale(1);
+}

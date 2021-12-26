@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #1293de;
+}
+.container {
+  width: 480px;
+}
+.container form {
+  display: flex;
+  margin: 12px 0;
+}
+.form-input {
+  position: relative;
+  flex: 1;
+}
+.form-input input {
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.form-eyes::before {
+  position: absolute;
+  font-family: boxicons !important;
+  content: "\eb08";
+  font-size: 24px;
+  font-weight: 400;
+  display: inline-block;
+  color: #000;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.show .form-eyes::before {
+  content: "\eb9e";
+}
+.submit {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 12px;
+  margin-left: 24px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  color: #fff;
+  background: #6f6f6f;
+  cursor: pointer;
+}
+.submit:hover {
+  background: #3f3f3f;
+}
+.validator {
+  background: rgba(79, 170, 5, 0.699);
+  padding: 12px;
+  border-radius: 8px;
+}
+.validator p {
+  font-size: 24px;
+  color: #fff;
+  line-height: 24px;
+  margin-bottom: 12px;
+}
+.validator p::before {
+  font-family: boxicons !important;
+  content: "\eef0";
+  font-weight: 400;
+  width: 30px;
+  display: inline-block;
+}
+p.valid {
+  color: rgba(255, 255, 255, 0.4);
+}
+p.valid::before {
+  content: "\eca4";
+}

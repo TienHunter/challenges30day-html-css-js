@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 680px;
+  position: relative;
+  overflow: hidden;
+}
+.container .video {
+  width: 100%;
+}
+.container .controls {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: #fff;
+  transform: translateY(calc(100% + 4px));
+  transition: transform ease 0.3s;
+}
+.container:hover .controls {
+  transform: unset;
+}
+.controls .state i {
+  cursor: pointer;
+  font-size: 30px;
+  margin: 0 8px;
+  display: block;
+}
+.controls .state:hover {
+  color: #eee;
+}
+.controls .player__time {
+  margin: 0 8px;
+  font-size: 18px;
+}
+.controls .player__progress {
+  flex: 1;
+  margin: 0 8px;
+  background-color: #ddd;
+  height: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.controls .progress__filled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: orangered;
+}
+.container .player__button {
+  margin: 0 8px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.container .volume {
+  display: flex;
+  margin: 0 8px;
+  font-size: 20px;
+}
+.volume i {
+  display: block;
+}

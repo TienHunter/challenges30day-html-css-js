@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style.css">
+   <title>Light Dark Mode</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <header>
+         <p>Nodemy</p>
+         <div class="mode">
+            <div class="mode__state"></div>
+         </div>
+
+      </header>
+      <div class="container">
+         <h1 class="title">Light/Dark Mode</h1>
+         <div class="description">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quis quos minima ullam aliquam veritatis
+               ad animi quisquam ipsum voluptatem voluptatibus incidunt delectus fuga explicabo, soluta illum est ab.
+               Perferendis? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo obcaecati quae iusto optio
+               nam eum error, voluptatibus molestiae nihil quo rem dolorem explicabo temporibus veritatis assumenda
+               porro, atque suscipit. Amet!
+            </p>
+            <div class="social">
+               <button class="button"><a href="">Nodemy</a></button>
+               <button class="button"><a href="">Youtube</a></button>
+               <button class="button"><a href="">Github</a></button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+
+      const wrapper = $('.wrapper');
+      const mode = $('.wrapper .mode');
+      const node_state = $('.mode .mode__state');
+      mode.onclick = () => {
+         wrapper.classList.toggle('dark');
+         if (wrapper.classList.contains('dark')) {
+            node_state.style.animation = 'setModeNight linear 0.5s forwards';
+         } else {
+            node_state.style.animation = 'setMode linear 0.5s forwards';
+
+         }
+      }
+   </script>
+</body>
+
+</html>

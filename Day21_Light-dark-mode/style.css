@@ -1,0 +1,124 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.wrapper {
+  position: relative;
+  padding: 12px 36px;
+  height: 100vh;
+  background: #eee;
+}
+.wrapper.dark {
+  background: #2d2d2d;
+}
+.wrapper header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper header p {
+  font-size: 60px;
+  font-weight: 600;
+  color: #e91341;
+}
+.wrapper.dark header p {
+  color: aqua;
+}
+.wrapper .mode {
+  position: relative;
+  width: 68px;
+  height: 24px;
+  background: #666;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.wrapper.dark .mode {
+  background: #15da1f;
+}
+.mode .mode__state {
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  /* animation: setMode linear 0.5s forwards; */
+}
+@keyframes setMode {
+  from {
+    right: 0;
+  }
+  to {
+    right: calc(100% - 24px);
+  }
+}
+
+@keyframes setModeNight {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 24px);
+  }
+}
+.container {
+  margin-top: 60px;
+  text-align: center;
+}
+.container .title {
+  font-size: 40px;
+  color: #d10e61;
+  margin-bottom: 24px;
+}
+.dark .container .title {
+  color: #1acee6;
+}
+.container .description {
+  background: #bebebe;
+  padding: 24px;
+  border-radius: 24px;
+  max-width: 900px;
+  margin: auto;
+}
+.dark .container .description {
+  background: #6d6d6d;
+}
+.description p {
+  font-size: 20px;
+  line-height: 24px;
+  color: #333;
+  font-weight: 500;
+}
+.dark .description p {
+  color: #eee;
+}
+.social {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.social .button {
+  border: none;
+  outline: none;
+  border-radius: 24px;
+  padding: 8px 12px;
+  font-size: 24px;
+  background: #eb2969;
+  min-width: 100px;
+  text-align: center;
+  /* display: inline-block; */
+}
+.dark .social .button {
+  background: #0a6cf1;
+}
+.button a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}

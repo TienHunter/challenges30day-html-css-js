@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Preview Image</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="wrapper">
+         <div class="image">
+            <img src="" alt="">
+         </div>
+         <div class="cancel-img"><i class='bx bx-x'></i></div>
+         <div class="content">
+            <div class="icon"><i class='bx bxs-cloud-upload'></i></div>
+            <div class="text">No file chosen, yet!</div>
+         </div>
+         <div class="file-name">
+            File name here ....
+         </div>
+      </div>
+      <input type="file" class="default-btn" hidden>
+      <button class="custom-btn">Choose a file</button>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+      const wrapper = $('.wrapper');
+      const customBtn = $('.custom-btn');
+      const defaultBtn = $('.default-btn');
+
+      const cancelBtn = $('.cancel-img');
+      const filename = $('.file-name')
+      const img = $('img');
+
+      customBtn.onclick = () => {
+         defaultBtn.click();
+      }
+      defaultBtn.onchange = function () {
+         console.log('files:', this.files);
+         const file = this.files[0];
+         console.log('file[0]:', file);
+         if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+               const result = reader.result;
+               img.src = result;
+               wrapper.classList.add('active');
+            }
+            cancelBtn.addEventListener('click', () => {
+               img.src = "";
+               wrapper.classList.remove('active');
+            })
+            reader.readAsDataURL(file);
+         }
+         if (this.value) {
+            let valueStore = this.value.replace(/^.*[\\\/]/, '');
+            filename.innerText = valueStore;
+         }
+      }
+   </script>
+</body>
+
+</html>

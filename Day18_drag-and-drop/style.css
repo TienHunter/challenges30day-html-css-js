@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(#418325, #810673);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fill {
+  background: url("./avatar.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+.empty {
+  width: 160px;
+  height: 160px;
+  background-color: #fff;
+  margin: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #000;
+}
+
+.hold {
+  border: 3px solid #666;
+}
+.hovered {
+  background: url("./avatar.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 3px dashed #aaa;
+}
+.invisible {
+  display: none;
+}

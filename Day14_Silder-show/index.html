@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Slider showImage</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="wrapper">
+         <div class="image">
+            <img src="" alt="">
+         </div>
+
+         <div class="btn btn-left"><i class='bx bxs-chevron-left'></i></div>
+         <div class="btn btn-right"><i class='bx bxs-chevron-right'></i></div>
+      </div>
+      <ul class="list-image">
+         <li class="item-image">
+            <img src="./avatar.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./avatar.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+         <li class="item-image">
+            <img src="./239515691_980574992781201_626956693557739521_n.jpg" alt="">
+         </li>
+      </ul>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+      const $$ = document.querySelectorAll.bind(document);
+      const imageDiv = $('.image');
+      const prevBtn = $('.btn.btn-left');
+      const nextBtn = $('.btn.btn-right');
+      const listImage = $$('.item-image');
+      const image = imageDiv.querySelector('img');
+      console.log(listImage);
+      let currentIndex = 0;
+      image.src = listImage[currentIndex].querySelector('img').src;
+      listImage[currentIndex].classList.add('active')
+      // fuction 
+      // HTML Dom
+      prevBtn.onclick = () => {
+         listImage[currentIndex].classList.remove('active')
+         if (currentIndex <= 0) {
+            currentIndex = listImage.length - 1;
+         } else {
+            currentIndex--;
+         }
+         image.src = listImage[currentIndex].querySelector('img').src;
+         listImage[currentIndex].classList.add('active')
+
+      }
+      nextBtn.onclick = () => {
+         listImage[currentIndex].classList.remove('active')
+
+         if (currentIndex >= listImage.length - 1) {
+            currentIndex = 0;
+         } else {
+            currentIndex++;
+         }
+         image.src = listImage[currentIndex].querySelector('img').src;
+         listImage[currentIndex].classList.add('active')
+
+
+      }
+      listImage.forEach((element, index) => {
+         element.onclick = () => {
+            listImage[currentIndex].classList.remove('active')
+            currentIndex = index;
+            element.classList.add('active');
+            image.src = element.querySelector('img').src;
+
+         }
+      })
+
+   </script>
+</body>
+
+</html>

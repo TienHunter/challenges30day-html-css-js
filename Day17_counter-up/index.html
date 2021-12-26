@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Document</title>
+</head>
+
+
+<body>
+   <div class="background"></div>
+   <div class="wrapper">
+      <h1 class="title">Counter up with JS</h1>
+      <p>"I did wrong. I should have considered the situation more carefully," Marin said in a television interview by
+         public broadcaster Yle on Wednesday night.
+         Marin said she decided not to cut her night out short on Saturday after being told she had been exposed to the
+         coronavirus the day before, she wrote on Facebook on Monday after a Finnish gossip magazine published a photo
+         of
+         her in a crowded nightclub.
+      </p>
+      <p>"I did wrong. I should have considered the situation more carefully," Marin said in a television interview by
+         public broadcaster Yle on Wednesday night.
+         Marin said she decided not to cut her night out short on Saturday after being told she had been exposed to the
+         coronavirus the day before, she wrote on Facebook on Monday after a Finnish gossip magazine published a photo
+         of
+         her in a crowded nightclub.
+      </p>
+      <p>"I did wrong. I should have considered the situation more carefully," Marin said in a television interview by
+         public broadcaster Yle on Wednesday night.
+         Marin said she decided not to cut her night out short on Saturday after being told she had been exposed to the
+         coronavirus the day before, she wrote on Facebook on Monday after a Finnish gossip magazine published a photo
+         of
+         her in a crowded nightclub.
+      </p>
+      <p>"I did wrong. I should have considered the situation more carefully," Marin said in a television interview by
+         public broadcaster Yle on Wednesday night.
+         Marin said she decided not to cut her night out short on Saturday after being told she had been exposed to the
+         coronavirus the day before, she wrote on Facebook on Monday after a Finnish gossip magazine published a photo
+         of
+         her in a crowded nightclub.
+      </p>
+   </div>
+
+   <div class="counter-up">
+      <div class="content">
+         <div class="box">
+            <div class="icon"><i class='bx bx-user'></i></div>
+            <div class="counter">1001</div>
+            <div class="text">Online now</div>
+         </div>
+         <div class="box">
+            <div class="icon"><i class='bx bx-briefcase-alt-2'></i></div>
+            <div class="counter">400</div>
+            <div class="text">Working now</div>
+         </div>
+         <div class="box">
+            <div class="icon"><i class='bx bx-gift'></i></div>
+            <div class="counter">600</div>
+            <div class="text">Completed project</div>
+         </div>
+         <div class="box">
+            <div class="icon"><i class='bx bx-search'></i></div>
+            <div class="counter">789</div>
+            <div class="text">Search</div>
+         </div>
+
+      </div>
+   </div>
+   <script>
+      const counters = document.querySelectorAll('.box');
+
+      function counterUp(delay, time, number, el) {
+         let start = 0;
+         let step = number / time;
+         const counter = setInterval(() => {
+            start += step;
+            if (start > number) {
+               clearInterval(counter);
+            } else {
+               el.innerText = Math.ceil(start);
+            }
+         }, delay)
+      }
+      counters.forEach((element, index) => {
+         const elCounter = element.querySelector('.counter');
+         const number = elCounter.innerText;
+         console.log(number);
+         counterUp(1, 100, number, elCounter)
+      })
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style.css">
+   <title>Show on scroll</title>
+</head>
+
+<body>
+   <section id="home" class="full-height ">
+      <div class="left-to-right show-on-scroll">
+         <h1>Nodemy</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+            recusandae sed illo sit, saepe laboriosam ea fugit, architecto quis
+            quia
+         </p>
+      </div>
+   </section>
+   <section id="about" class="full-height">
+      <div class="left-to-right show-on-scroll">
+         <h2>Title</h2>
+         <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+            eveniet sequi. Nobis, dolorum culpa doloribus adipisci ut ab iure non
+            voluptates vel exercitationem explicabo nam, sunt maxime error nemo
+            assumenda.
+         </p>
+      </div>
+      <div class="right-to-left show-on-scroll">
+         <h2>Title</h2>
+         <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+            eveniet sequi. Nobis, dolorum culpa doloribus adipisci ut ab iure non
+            voluptates vel exercitationem explicabo nam, sunt maxime error nemo
+            assumenda.
+         </p>
+      </div>
+   </section>
+   <section id="contact" class="full-height">
+      <div class="zoom show-on-scroll">
+         <h3>Person 1</h3>
+         <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In
+            repudiandae sequi, ad cum aperiam odit eius earum molestiae voluptatem
+         </p>
+      </div>
+      <div class="zoom show-on-scroll">
+         <h3>Person 1</h3>
+         <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In
+            repudiandae sequi, ad cum aperiam odit eius earum molestiae voluptatem
+         </p>
+      </div>
+      <div class="zoom show-on-scroll">
+         <h3>Person 1</h3>
+         <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In
+            repudiandae sequi, ad cum aperiam odit eius earum molestiae voluptatem
+         </p>
+      </div>
+   </section>
+
+   <script>
+      // const elToShow = document.querySelectorAll('.show-on-scroll')
+      // let ElInViewport = (el) => {
+      //    let rect = el.getBoundingClientRect();
+      //    console.log(rect.top, rect.bottom);
+      //    let viewHeight = window.innerHeight || document.documentElement.clientHeight
+
+      //    // return (el.top <=0 && el.bottom >=0 ||
+      //    //          el.top <= viewHeight   
+      //    //       )
+      // }
+      // elToShow.forEach((element, index) => {
+      //    ElInViewport(element);
+      // })
+      // window.onscroll = console.log(window.innerHeight || document.documentElement.clientHeight);
+      let elToShow = document.querySelectorAll('.show-on-scroll')
+
+      let isElInViewPort = (el) => {
+         let rect = el.getBoundingClientRect()
+         console.log(rect.top, rect.bottom);
+         // some browsers support innerHeight, others support documentElement.clientHeight
+         let viewHeight = window.innerHeight || document.documentElement.clientHeight
+
+         return (
+            (rect.top <= 0 && rect.bottom >= 0) ||
+            (rect.bottom >= viewHeight && rect.top <= viewHeight) ||
+            (rect.top >= 0 && rect.bottom <= viewHeight)
+         )
+      }
+
+      function loop() {
+         elToShow.forEach((item) => {
+            if (isElInViewPort(item)) {
+               item.classList.add('start')
+            } else {
+               item.classList.remove('start')
+            }
+         })
+      }
+
+      window.onscroll = loop
+
+      loop()
+
+   </script>
+
+</body>
+
+</html>

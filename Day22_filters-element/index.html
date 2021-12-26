@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style.css">
+   <title>Filters element</title>
+</head>
+
+<body>
+   <section>
+      <ul class="options">
+         <li class="option active" data-field="all">All</li>
+         <li class="option" data-field="phone">Phone</li>
+         <li class="option" data-field="watch">Watch</li>
+         <li class="option" data-field="mouse">Mouse</li>
+         <li class="option" data-field="laptop">Laptop</li>
+      </ul>
+      <div class="products">
+         <div class="itemBox" data-field="laptop"><img src="./laptop1.jpg" alt=""></div>
+         <div class="itemBox" data-field="laptop"><img src="./laptop2.jpg" alt=""></div>
+         <div class="itemBox" data-field="laptop"><img src="./laptop3.jpg" alt=""></div>
+         <div class="itemBox" data-field="laptop"><img src="./laptop4.jpg" alt=""></div>
+         <div class="itemBox" data-field="phone"><img src="./phone1.jpg" alt=""></div>
+         <div class="itemBox" data-field="phone"><img src="./phone2.jpg" alt=""></div>
+         <div class="itemBox" data-field="phone"><img src="./phone3.jpg" alt=""></div>
+         <div class="itemBox" data-field="phone"><img src="./phone4.jpg" alt=""></div>
+         <div class="itemBox" data-field="mouse"><img src="./mouse1.jpg" alt=""></div>
+         <div class="itemBox" data-field="mouse"><img src="./mouse2.jpg" alt=""></div>
+         <div class="itemBox" data-field="mouse"><img src="./mouse3.jpg" alt=""></div>
+         <div class="itemBox" data-field="mouse"><img src="./mouse4.jpg" alt=""></div>
+         <div class="itemBox" data-field="watch"><img src="./watch1.jpg" alt=""></div>
+         <div class="itemBox" data-field="watch"><img src="./watch2.jpg" alt=""></div>
+         <div class="itemBox" data-field="watch"><img src="./watch3.jpg" alt=""></div>
+         <div class="itemBox" data-field="watch"><img src="./watch4.jpg" alt=""></div>
+      </div>
+   </section>
+
+   <script>
+      const $ = document.querySelector.bind(document);
+      const $$ = document.querySelectorAll.bind(document);
+
+      const options = $$('.option');
+      const listProducts = $$('.itemBox');
+      options.forEach(option => {
+         option.addEventListener('click', (event) => {
+            const type = event.target.getAttribute('data-field');
+            document.querySelector('.option.active').classList.remove('active');
+            option.classList.add('active');
+
+            listProducts.forEach(itemBox => {
+               if (type === 'all' || type === itemBox.getAttribute('data-field')) {
+                  itemBox.classList.add('show');
+                  itemBox.classList.remove('hide');
+               } else {
+                  itemBox.classList.remove('show');
+                  itemBox.classList.add('hide');
+               }
+            })
+         })
+
+      })
+   </script>
+</body>
+
+</html>

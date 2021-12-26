@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: #ccc;
+}
+.field {
+  padding: 30px;
+}
+canvas {
+  box-shadow: -2px 2px 6px 9px #000;
+}
+.field .tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.tools .color-field {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 4px;
+  border: 2px solid #fff;
+}
+.tools .button {
+  height: 40px;
+  width: 100px;
+  border: 2px solid #fff;
+  align-self: center;
+  cursor: pointer;
+  color: #fff;
+  background-color: #222;
+  margin: 0 8px;
+}
+.tools .color-picker {
+  min-width: 40px;
+  margin: 0 8px;
+}

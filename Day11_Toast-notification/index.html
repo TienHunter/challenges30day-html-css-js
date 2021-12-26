@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Toast Message</title>
+</head>
+
+<body>
+   <div id="toast"></div>
+   <div onclick='showToastSuccess()' class="btn btn--success">Show success toast</div>
+   <div onclick='showToastWarning()' class="btn btn--warning">Show warning toast</div>
+   <div onclick='showToastError()' class="btn btn--error">Show error toast</div>
+   <script>
+      function toast({
+         title = '',
+         message = '',
+         type = '',
+         delay = 1000
+      }) {
+         const main = document.getElementById('toast');
+         if (main) {
+            const toast = document.createElement('div');
+            toast.classList.add('toast', `toast--${type}`);
+            toast.onclick = (e) => {
+               if (e.target.closest('.toast__close')) {
+                  toast.remove();
+               }
+            }
+            const icons = {
+               success: 'bx bxs-check-circle',
+               warning: 'bx bx-error-circle',
+               error: 'bx bx-error-circle',
+            }
+            let icon = icons[type];
+            toast.innerHTML = `<div class="toast__icon">
+                                 <i class='${icon}'></i>
+                              </div>
+                              <div class="toast__body">
+                                 <h3 class="toast__title">${title}</h3>
+                                 <p class="toast__msg">${message}</p>
+                              </div>
+                              <div class="toast__close">
+                                 <i class='bx bx-x'></i>
+                              </div>`
+            const time = (delay / 1000).toFixed(2)
+            toast.style.animation = `fadeInMessage ease 0.5s, fadeOut  linear 0.5s ${time}s forwards`
+            main.appendChild(toast);
+            setTimeout(() => {
+               toast.remove();
+            }, delay + 1000);
+         }
+      }
+
+      function showToastSuccess() {
+         toast(
+            {
+               title: 'Success',
+               message: 'Bạn đã đăng ký tài khoản tại F8 thành công.',
+               type: 'success',
+               delay: 3000
+            }
+         )
+      }
+      function showToastWarning() {
+         toast(
+            {
+               title: 'Warning',
+               message: 'Mật khẩu của bạn quá đơn giản xin hãy thay đổi mật khẩu !',
+               type: 'warning',
+               delay: 3000
+            }
+         )
+      }
+      function showToastError() {
+         toast(
+            {
+               title: 'Error',
+               message: 'Kết nối tới máy chủ thất bại, vui lòng thử lại sau !',
+               type: 'error',
+               delay: 3000
+            }
+         )
+      }
+   </script>
+</body>
+
+</html>

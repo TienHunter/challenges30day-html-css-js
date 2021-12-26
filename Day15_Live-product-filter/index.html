@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Live product filter</title>
+</head>
+
+
+<body>
+   <div class="wrapper">
+      <div class="heading">
+         <h3>Live product filter</h3>
+         <div class="form-input active">
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Find something ...">
+         </div>
+      </div>
+      <ul class="products">
+         <li class="product">
+            <div class="image-item">
+               <img src="./htx.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Huyền trọng xích</h4>
+               <p class="description-item">vũ khí của Tiêu viêm tác dụng kìm nén đấu khí</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+         <li class="product">
+            <div class="image-item">
+               <img src="./pq.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Phần quyết</h4>
+               <p class="description-item">công pháp dung hợp dị hỏa</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+         <li class="product">
+            <div class="image-item">
+               <img src="./tldth.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Thanh liên địa tâm hỏa</h4>
+               <p class="description-item">Dị hỏa bài danh thứ 19 trong dị hỏa bảng</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+         <li class="product">
+            <div class="image-item">
+               <img src="./tldth.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Thanh liên địa tâm hỏa</h4>
+               <p class="description-item">Dị hỏa bài danh thứ 19 trong dị hỏa bảng</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+         <li class="product">
+            <div class="image-item">
+               <img src="./tldth.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Thanh liên địa tâm hỏa</h4>
+               <p class="description-item">Dị hỏa bài danh thứ 19 trong dị hỏa bảng</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+
+         <li class="product">
+            <div class="image-item">
+               <img src="./vltv.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Vẫn lạc tâm viêm</h4>
+               <p class="description-item">Dị hỏa bài danh thứ 14 trong dị hỏa bảng</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+         <li class="product">
+            <div class="image-item">
+               <img src="./vltv.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Vẫn lạc tâm viêm</h4>
+               <p class="description-item">Dị hỏa bài danh thứ 14 trong dị hỏa bảng</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+         <li class="product">
+            <div class="image-item">
+               <img src="./vltv.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Vẫn lạc tâm viêm</h4>
+               <p class="description-item">Dị hỏa bài danh thứ 14 trong dị hỏa bảng</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+         <li class="product">
+            <div class="image-item">
+               <img src="./htd.jpg" alt="">
+            </div>
+            <div class="infor-item">
+               <h4 class="name-item">Hải tâm diễm</h4>
+               <p class="description-item">Dị hỏa bài danh thứ 16 trong dị hỏa bảng</p>
+            </div>
+            <div class="prices">
+               20 vạn
+            </div>
+         </li>
+      </ul>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+      const $$ = document.querySelectorAll.bind(document);
+      const inputBar = $('.form-input input');
+      const listItem = $$('.product');
+      function compareData(inputUser, data) {
+         if (data.includes(inputUser)) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+      inputBar.oninput = (e) => {
+         listItem.forEach((element, index) => {
+            let nameItem = element.querySelector('.name-item').innerText.toLowerCase();
+            let inputUser = e.target.value.toLowerCase();
+            console.log(inputUser);
+            if (compareData(inputUser, nameItem)) {
+               element.classList.remove('hidden');
+            } else {
+               element.classList.add('hidden');
+            }
+         })
+
+
+      }
+
+
+
+   </script>
+</body>
+
+</html>

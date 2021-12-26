@@ -1,0 +1,98 @@
+:root {
+  --size-btn: 36px;
+  --search-color: #8c8c8c9f;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  /* background-image: url("https://source.unsplash.com/1600x900/?landscape"); */
+  margin: 0;
+  font-size: 18px;
+}
+.card {
+  background-color: #0000006b;
+  border-radius: 30px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  color: #fff;
+  margin: 16px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search button {
+  margin-left: 8px;
+  width: var(--size-btn);
+  height: var(--size-btn);
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  background-color: var(--search-color);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.search button i {
+  line-height: var(--size-btn);
+  font-size: calc(var(--size-btn) / 2);
+}
+input.search-bar {
+  border: none;
+  outline: none;
+  padding: 6px 12px;
+  border-radius: 16px;
+  background-color: var(--search-color);
+  width: calc(100% - 100px);
+  color: #fff;
+  font-size: 16px;
+  font-family: inherit;
+}
+::placeholder {
+  color: #000;
+  opacity: 0.8;
+}
+
+button:hover {
+  background-color: #ddddddbb;
+}
+.weather {
+  margin-top: 24px;
+}
+h2.temp {
+  /* margin: 12px 0; */
+  font-size: 36px;
+  margin-top: 18px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+img.icon {
+  width: 64px;
+}
+.description {
+  text-transform: capitalize;
+}
+.weather.loading {
+  visibility: hidden;
+  position: relative;
+  max-height: 20px;
+  transition: 0.2s;
+}
+.weather.loading::after {
+  visibility: visible;
+  position: absolute;
+  content: "Loading...";
+  top: 0;
+  left: 20px;
+}

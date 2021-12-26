@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(120deg, #3ca7ee, #9b408f);
+  height: 100vh;
+}
+.container {
+  margin: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  min-width: 280px;
+}
+.header {
+  font-size: 30px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.form-control {
+  position: relative;
+  margin: 24px 0;
+  border-bottom: 2px solid #ccc;
+}
+.form-control input {
+  padding: 4px 0;
+  font-size: 14px;
+  color: #333;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+.form-control span::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #2691d9;
+  transition: 0.3s linear;
+}
+.form-control input:focus ~ span::after {
+  width: 100%;
+}
+.notice {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 12px;
+  padding: 8px 0;
+  color: red;
+}
+.btn {
+  border: none;
+  font-size: 14px;
+  border-radius: 12px;
+  padding: 6px 0;
+  width: 100%;
+  background-color: #2691d9;
+  color: #fff;
+  margin: 12px 0;
+  cursor: pointer;
+}
+.success {
+  border-bottom: 2px solid #2691d9;
+}
+.error {
+  border-bottom: 2px solid red;
+}
+#username {
+}
+#email {
+}
+#password {
+}
+#password2 {
+}
+.footer {
+  text-align: center;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="./style.css">
+   <title>Skeleton loading effect</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="card">
+         <div class="card-image loading"></div>
+         <div class="card-infor">
+            <h3 class="card-title loading"></h3>
+            <p class="card-description loading"></p>
+            <div class="social loading">
+            </div>
+         </div>
+      </div>
+   </div>
+   <script>
+      const $ = document.querySelector.bind(document);
+      const container = document.querySelector('.container');
+      const image = $('.card-image');
+      const title = $('.card-title');
+      const description = $('.card-description');
+      const social = $('.social');
+
+      // fetch('https://api.openweathermap.org/data/2.5/weather?q=hanoi&units=metric&appid=58349ad23aa309afdf6fd024947aa2bb')
+      //    .then(response => response.json())
+      //    .then(data => console.log(data));
+      setTimeout(() => {
+         image.innerHTML = `<img src="./avt.jpg" alt="">`;
+         image.classList.remove('loading');
+         title.innerText = 'Ngọc Lan'
+         title.classList.remove('loading');
+         description.innerText = `_Hãy luôn là phiên bản hạng nhất của chính mình, còn hơn là phiên bản hạng hai của người khác_`;
+         description.classList.remove('loading');
+         social.innerHTML = `<a href="https://www.facebook.com/ngoc.lan.2403"><i class='bx bxl-facebook'></i></a>`
+         social.classList.remove('loading');
+      }, 3000)
+
+   </script>
+</body>
+
+</html>
